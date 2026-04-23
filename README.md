@@ -5,7 +5,7 @@ spring-backend-bootcamp/
 ├── README.md                         # 레포 소개 + 전체 목차(링크)
 ├── .gitignore
 │
-├── 02-java/                          # Java 섹션
+├── 01-java/                          # Java 섹션
 │   ├── README.md                     
 │   ├── 01_basic/                     # java - basic
 │   │   ├── README.md
@@ -14,7 +14,7 @@ spring-backend-bootcamp/
 │   └── 03_advanced/                  # java - advanced
 │       ├── README.md
 │
-├── 03-spring/                        # Spring 섹션
+├── 02-spring/                        # Spring 섹션
 │   ├── README.md
 
 ```
