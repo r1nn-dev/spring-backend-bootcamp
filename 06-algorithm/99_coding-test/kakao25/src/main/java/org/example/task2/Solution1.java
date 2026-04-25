@@ -1,4 +1,4 @@
-package org.example;
+package org.example.task2;
 
 public class Solution1 {
     public int solution(int N, String S) {
