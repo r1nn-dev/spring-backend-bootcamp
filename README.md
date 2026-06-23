@@ -27,27 +27,33 @@ spring-backend-bootcamp/
 │   └── 03-advanced/                  # java - advanced
 ├── 02-spring/                        # Spring 
 │   ├── README.md
-│   ├── 01-spring-basic/
-│   ├── 02-spring-boot/
-│   ├── 03-spring-mvc/
-│   ├── 04-spring-data-jpa/
-│   └── 05-spring-security/
+│   ├── 01-spring-boot-core/
+│   ├── 02-spring-boot-mvc/
+│   ├── 03-spring-data-jpa/
+│   ├── 04-spring-security/
+│   ├── 05-spring-boot-test/
+│   ├── 06-spring-boot-ops/
+│   ├── 07-spring-boot-integration/
+│   ├── 08-spring-boot-architecture/
+│   ├── 09-spring-cloud-msa/
+│   └── 99-spring-projects/
 ├── 03-database/                      # Database
 │   ├── README.md
 │   ├── 01-sql/
 │   ├── 02-modeling/
 │   └── 03-orm/
 ├── 04-spring-ai/                     # Spring AI
-│   ├── README.md
-│   ├── 01-basic/
-│   ├── 02-llm-api/
-│   └── 03-practice/ 
+│   ├── 01-spring-ai-basic/           # Spring AI 라이브러리, 기본 구조
+│   ├── 02-llm-api/                   # Claude, LLM API, 모델 파라미터, 비용 계산
+│   ├── 03-rag/                       # LLM과 RAG, AI 메모리 전략
+│   ├── 04-agent-mcp/                 # Agent, Function Calling, MCP
+│   ├── 05-local-model/               # 로컬 AI 모델 실행
+│   └── 99-practice/                  # 프롬프트 엔지니어링, 실습, Vibe Coding
 ├── 05-frontend/                      # Frontend
 │   ├── README.md                     
-│   ├── 01-html/                      # frontend - html
-│   ├── 02-css/                       # frontend - css
-│   ├── 03-javascript/                # frontend - javascript
-│   └── 04-react/                     # frontend - react
+│   ├── 01-html-css/                  # frontend - html/css
+│   ├── 02-javascript/                # frontend - javascript
+│   └── 03-react/                     # frontend - react
 ├── 06-algorithm/                     # Algorithm
 │   ├── README.md
 │   ├── 01-data-structure/
@@ -68,7 +74,7 @@ spring-backend-bootcamp/
     ├── README.md    
     ├── 01-special-lectures/             
     ├── 99-final-project/             # final project summary
-    ├── 02-exam-review/               # concept exam review
+    ├── 99-exam-review/               # concept exam review
     └── 99-missions/                  # platform mission
 ```
 
