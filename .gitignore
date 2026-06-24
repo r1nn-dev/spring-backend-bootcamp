@@ -1,12 +1,113 @@
-# IntelliJ
+# ========================
+# IntelliJ IDEA
+# ========================
 .idea/
 *.iml
+*.iws
+*.ipr
 out/
 
-# Gradle
+# ========================
+# [02-spring] Gradle
+# ========================
 .gradle/
 build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
+# ========================
+# [02-spring] Spring Boot
+# ========================
+HELP.md
+application-local.yml
+application-local.yaml
+application-local.properties
+application-secret*.yml
+application-secret*.yaml
+application-secret*.properties
+
+# ========================
+# [01-java][06-algorithm] Compiled Output
+# ========================
+bin/
+target/
+*.class
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# ========================
+# [05-frontend] Node.js / React
+# ========================
+node_modules/
+dist/
+.next/
+.parcel-cache/
+.npm/
+.eslintcache
+.stylelintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+
+# ========================
+# [08-cloud] Terraform / DevOps
+# ========================
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+!*.tfvars.example
+override.tf
+override.tf.json
+*.pem
+*.key
+kubeconfig
+docker-compose.override.yml
+
+# ========================
+# [04-spring-ai] Python / AI 도구
+# ========================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.ipynb_checkpoints/
+.ipynb_checkpoints/
+
+# ========================
+# Logs
+# ========================
+*.log
+logs/
+log/
+npm-debug.log*
+
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.*
+*.env
+secrets/
+
+# ========================
+# Archive / Packaging
+# ========================
+*.zip
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# ========================
+# JVM Crash Logs
+# ========================
+hs_err_pid*.log
+replay_pid*.log
+
+# ========================
 # OS
+# ========================
 .DS_Store
 Thumbs.db
+desktop.ini
