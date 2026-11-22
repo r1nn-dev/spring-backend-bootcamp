@@ -29,9 +29,15 @@
 
 body {
   margin: 0;
+  /* 페이지 전체 grid: header / main / footer 3행
+     main(1fr)이 남는 높이를 차지해 내용이 짧아도 footer가 화면 맨 아래에 붙는다 */
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
+  word-break: keep-all; /* 한글을 단어 단위로 줄바꿈 */
   color: var(--color-text);
   background: var(--color-bg);
 }
@@ -96,16 +102,32 @@ html {
 }
 
 /* =========================
-   4. 본문 레이아웃 (1-3: 한 줄로 쌓기 / 1-1에서 grid 적용)
+   4. 본문 레이아웃 (grid-container)
    ========================= */
 .container {
+  width: 100%;
   max-width: var(--max-width);
   margin: var(--space-xl) auto;
   padding: 0 var(--space-lg);
+
+  display: grid;
+  /* 좌측 프로필: 최소 240px ~ 최대 300px / 우측 본문: 남은 폭 전부 */
+  grid-template-columns: minmax(240px, 300px) 1fr;
+  grid-template-areas: "profile content";
+  gap: var(--space-lg); /* 열·행 사이 간격 (구 grid-gap) */
+  align-items: start;   /* 각 열이 내용 높이만큼만 차지 (늘어나지 않게) */
+}
+
+/* grid-item 배치 */
+.profile {
+  grid-area: profile;
+  position: sticky; /* 본문을 스크롤해도 프로필이 따라옴 */
+  top: var(--space-lg);
 }
 
 .content {
-  margin-top: var(--space-lg);
+  grid-area: content;
+  min-width: 0; /* 긴 내용이 1fr 열을 밀어내지 않게 */
 }
 
 .card {
@@ -241,4 +263,22 @@ html {
   padding: var(--space-lg);
   color: var(--color-muted);
   font-size: 0.875rem;
+}
+
+/* =========================
+   9. 반응형 grid (768px 이하: 2열 → 1열)
+   ========================= */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "profile"
+      "content";
+    margin: var(--space-lg) auto;
+    padding: 0 var(--space-md);
+  }
+
+  .profile {
+    position: static; /* 1열에서는 고정 해제 */
+  }
 }
