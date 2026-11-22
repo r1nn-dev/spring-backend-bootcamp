@@ -67,6 +67,11 @@ kubeconfig
 docker-compose.override.yml
 
 # ========================
+# [09-coursework] Firebase Hosting
+# ========================
+.firebase/
+
+# ========================
 # [04-spring-ai] Python / AI 도구
 # ========================
 __pycache__/
