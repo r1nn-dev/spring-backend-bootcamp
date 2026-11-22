@@ -266,8 +266,36 @@ html {
 }
 
 /* =========================
-   9. 반응형 grid (768px 이하: 2열 → 1열)
+   9. 반응형
+   - 데스크탑 (1024px~)     : 위 기본값 (2열)
+   - 태블릿   (769~1023px)  : 2열 유지, 여백·글자·아바타 축소
+   - 태블릿   (~768px)      : 1열 (1-1)
+   - 모바일   (~480px)      : 메뉴 세로 정렬, 폰트 축소, 항목 제목·기간 세로 배치
+   큰 화면 → 작은 화면 순서로 작성해서 뒤의 규칙이 앞의 규칙을 덮어쓴다.
    ========================= */
+
+/* 태블릿: 1023px 이하 */
+@media (max-width: 1023px) {
+  .header-inner {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .name {
+    font-size: 1.75rem;
+  }
+
+  .container {
+    margin: var(--space-lg) auto;
+    gap: var(--space-md); /* 열 폭은 minmax(240px, 300px) 유지 (더 좁히면 연락처 줄이 깨짐) */
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* 태블릿(세로)·대형 모바일: 768px 이하 → 1열 */
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
@@ -280,5 +308,63 @@ html {
 
   .profile {
     position: static; /* 1열에서는 고정 해제 */
+  }
+}
+
+/* 모바일: 480px 이하 */
+@media (max-width: 480px) {
+  html {
+    font-size: 93.75%; /* 기본 16px → 15px, rem 단위 전체가 함께 줄어든다 */
+  }
+
+  /* 헤더: 이름과 메뉴를 위아래로 */
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-md);
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  /* 메뉴: 가로 → 세로 정렬 */
+  .nav {
+    width: 100%;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: var(--space-sm) 0; /* 손가락으로 누르기 쉽게 세로 여백 확보 */
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .container {
+    margin: var(--space-md) auto;
+    padding: 0 var(--space-sm);
+    gap: var(--space-md);
+  }
+
+  .card {
+    padding: var(--space-md);
+  }
+
+  .card + .card {
+    margin-top: var(--space-md);
+  }
+
+  /* 항목: 제목(좌)·기간(우) 가로 배치 → 위아래 배치 */
+  .item-head {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .period {
+    white-space: normal;
   }
 }
