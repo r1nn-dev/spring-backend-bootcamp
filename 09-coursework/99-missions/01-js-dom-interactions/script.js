@@ -173,8 +173,45 @@ function setupTimesTable() {
 }
 
 /* =========================
+   2-4. 이미지 효과 및 다크모드 토글
+   ========================= */
+function setupImageHover() {
+  const image = document.querySelector('#hover-image');
+
+  // 원래 이미지와 바뀔 이미지 (src, alt)
+  const original = { src: image.getAttribute('src'), alt: image.alt };
+  const hover = { src: image.dataset.hoverSrc, alt: image.dataset.hoverAlt };
+
+  // 바뀔 이미지를 미리 불러 둔다 → 처음 마우스를 올릴 때 깜빡임 방지
+  new Image().src = hover.src;
+
+  function show({ src, alt }) {
+    image.src = src;
+    image.alt = alt; // 보이는 그림이 바뀌면 대체 텍스트도 맞춘다
+  }
+
+  // onmouseover / onmouseout과 같은 이벤트를 addEventListener로 등록
+  image.addEventListener('mouseover', () => show(hover));
+  image.addEventListener('mouseout', () => show(original));
+}
+
+function setupThemeToggle() {
+  const toggleButton = document.querySelector('#theme-toggle');
+
+  toggleButton.addEventListener('click', () => {
+    // .dark가 없으면 붙이고, 있으면 뗀다. 반환값: 토글 후 .dark가 있는지
+    const isDark = document.body.classList.toggle('dark');
+
+    toggleButton.textContent = isDark ? '라이트모드로 전환' : '다크모드로 전환';
+    toggleButton.setAttribute('aria-pressed', String(isDark));
+  });
+}
+
+/* =========================
    실행
    ========================= */
 setupGreeting();
 setupModal();
 setupTimesTable();
+setupImageHover();
+setupThemeToggle();

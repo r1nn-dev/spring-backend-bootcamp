@@ -61,6 +61,31 @@
       </div>
     </section>
 
+    <!-- 2-4. 이미지 효과 및 다크모드 토글 -->
+    <section id="effects" class="card">
+      <h2 class="card-title">이미지 효과 · 다크모드</h2>
+      <p class="card-desc">이미지에 마우스를 올리면 다른 이미지로 바뀌고, 버튼으로 다크모드를 전환합니다.</p>
+
+      <figure class="hover-figure">
+        <!-- data-hover-src: 마우스를 올렸을 때 보여 줄 이미지 -->
+        <img
+          id="hover-image"
+          class="hover-image"
+          src="images/day.jpg"
+          data-hover-src="images/night.jpg"
+          data-hover-alt="밤하늘: 어두운 남색 하늘에 뜬 초승달"
+          alt="낮 하늘: 구름 사이로 빛나는 해"
+          width="480"
+          height="320"
+        >
+        <figcaption class="hover-caption">마우스를 올려 보세요</figcaption>
+      </figure>
+
+      <button type="button" id="theme-toggle" class="button" aria-pressed="false">
+        다크모드로 전환
+      </button>
+    </section>
+
   </main>
 
   <footer class="site-footer">
