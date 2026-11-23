@@ -36,11 +36,35 @@
       </div>
     </section>
 
+    <!-- 2-2. 모달 창 구현 -->
+    <section id="modal-demo" class="card">
+      <h2 class="card-title">모달 창</h2>
+      <p class="card-desc">버튼을 누르면 모달이 열리고, 닫기 버튼으로 닫힙니다.</p>
+      <button type="button" id="modal-open-button" class="button">모달 열기</button>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <p>Mission 2 · 웹 개발 심화 1</p>
   </footer>
+
+  <!-- 2-2 모달: 기본 숨김 상태 (.modal → display: none, .is-open이 붙으면 표시)
+       position: fixed라 화면 전체를 덮으므로 body 끝에 둔다 -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title">안내</h2>
+        <button type="button" class="icon-button" data-modal-close aria-label="모달 닫기">&times;</button>
+      </div>
+      <p class="modal-body">
+        모달 창이 열렸습니다. 닫기 버튼, 바깥 배경 클릭, Esc 키로 닫을 수 있어요.
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="button" data-modal-close>닫기</button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

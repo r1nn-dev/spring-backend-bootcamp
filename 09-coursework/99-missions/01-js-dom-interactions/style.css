@@ -14,6 +14,8 @@
   --color-success-text: #047857;
   --color-error-bg: #fef2f2;
   --color-error-text: #b91c1c;
+  --color-overlay: rgba(17, 24, 39, 0.55);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 
   --radius: 12px;
   --space-sm: 0.5rem;
@@ -176,7 +178,85 @@ h1, h2, p {
 }
 
 /* =========================
-   5. 반응형
+   5. 2-2 모달
+   ========================= */
+
+/* 기본: 숨김 */
+.modal {
+  position: fixed;
+  inset: 0; /* top·right·bottom·left: 0 → 화면 전체 */
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  background: var(--color-overlay); /* 반투명 배경 */
+}
+
+/* JS가 .is-open을 붙이면 표시 */
+.modal.is-open {
+  display: flex;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.modal-title {
+  font-size: 1.25rem;
+}
+
+.modal-body {
+  color: var(--color-muted);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-lg);
+}
+
+.icon-button {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-muted);
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+/* 모달이 열려 있는 동안 뒤 페이지 스크롤 막기 */
+body.has-modal {
+  overflow: hidden;
+}
+
+/* =========================
+   6. 반응형
    ========================= */
 @media (max-width: 480px) {
   .field-row {

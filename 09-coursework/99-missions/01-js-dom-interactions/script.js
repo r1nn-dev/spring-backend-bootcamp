@@ -44,6 +44,49 @@ function setupGreeting() {
 }
 
 /* =========================
+   2-2. 모달 창 구현
+   ========================= */
+function setupModal() {
+  const openButton = document.querySelector('#modal-open-button');
+  const modal = document.querySelector('#modal');
+  // 닫기 버튼이 2개(× 아이콘, 하단 버튼)라 data 속성으로 모두 찾는다
+  const closeButtons = modal.querySelectorAll('[data-modal-close]');
+
+  function openModal() {
+    modal.classList.add('is-open');          // 모달 표시
+    document.body.classList.add('has-modal'); // 뒤 페이지 스크롤 잠금
+    closeButtons[0].focus();                  // 키보드 사용자를 위해 포커스를 모달 안으로
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');          // 모달 숨김
+    document.body.classList.remove('has-modal');
+    openButton.focus();                          // 포커스를 연 버튼으로 되돌림
+  }
+
+  openButton.addEventListener('click', openModal);
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', closeModal);
+  });
+
+  // 바깥 배경(.modal 자체)을 클릭하면 닫기. 대화상자 안쪽 클릭은 무시
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Esc 키로 닫기 (열려 있을 때만)
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+}
+
+/* =========================
    실행
    ========================= */
 setupGreeting();
+setupModal();
