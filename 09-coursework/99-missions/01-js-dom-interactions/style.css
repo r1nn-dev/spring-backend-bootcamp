@@ -256,10 +256,41 @@ body.has-modal {
 }
 
 /* =========================
-   6. 반응형
+   6. 2-3 구구단
+   ========================= */
+.times-title {
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.times-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 */
+  gap: var(--space-sm);
+}
+
+.times-list li {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums; /* 숫자 폭을 같게 → 줄 맞춤 */
+}
+
+/* =========================
+   7. 반응형
    ========================= */
 @media (max-width: 480px) {
   .field-row {
     flex-direction: column; /* 입력창·버튼을 위아래로 */
+  }
+
+  .times-list {
+    grid-template-columns: repeat(2, 1fr); /* 모바일 2열 */
   }
 }

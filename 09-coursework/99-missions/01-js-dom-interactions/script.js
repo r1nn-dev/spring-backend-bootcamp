@@ -86,7 +86,95 @@ function setupModal() {
 }
 
 /* =========================
+   2-3. 구구단 출력기
+   ========================= */
+const MIN_DAN = 2;
+const MAX_DAN = 9;
+
+// 입력 문자열 검증 (조건문) → { ok: true, dan } 또는 { ok: false, message }
+function validateDan(rawValue) {
+  const text = rawValue.trim();
+
+  if (text === '') {
+    return { ok: false, message: '단을 입력해 주세요.' };
+  }
+
+  const dan = Number(text); // 입력값은 문자열 → 숫자로 변환
+
+  if (!Number.isInteger(dan)) {
+    return { ok: false, message: '정수를 입력해 주세요.' };
+  } else if (dan < MIN_DAN || dan > MAX_DAN) {
+    return { ok: false, message: `${MIN_DAN}~${MAX_DAN} 사이의 숫자를 입력해 주세요.` };
+  }
+
+  return { ok: true, dan };
+}
+
+// 구구단 계산 (반복문) → ['7 × 1 = 7', '7 × 2 = 14', ...]
+function createTimesTable(dan) {
+  const rows = [];
+  for (let i = 1; i <= 9; i++) {
+    rows.push(`${dan} × ${i} = ${dan * i}`);
+  }
+  return rows;
+}
+
+function setupTimesTable() {
+  const danInput = document.querySelector('#dan-input');
+  const timesButton = document.querySelector('#times-button');
+  const output = document.querySelector('#times-output');
+
+  function showError(message) {
+    output.classList.add('is-error');
+    output.textContent = message;
+    danInput.focus();
+  }
+
+  function showTable(dan, rows) {
+    output.classList.remove('is-error');
+
+    const title = document.createElement('p');
+    title.className = 'times-title';
+    title.textContent = `${dan}단`;
+
+    const list = document.createElement('ol');
+    list.className = 'times-list';
+    for (const row of rows) {
+      const item = document.createElement('li');
+      item.textContent = row;
+      list.append(item);
+    }
+
+    // 이전 결과를 지우고 새 결과로 교체
+    output.replaceChildren(title, list);
+  }
+
+  function printTimesTable() {
+    const result = validateDan(danInput.value);
+
+    if (!result.ok) {
+      showError(result.message);
+      return;
+    }
+
+    showTable(result.dan, createTimesTable(result.dan));
+  }
+
+  timesButton.addEventListener('click', printTimesTable);
+
+  danInput.addEventListener('keydown', (event) => {
+    if (event.isComposing) {
+      return;
+    }
+    if (event.key === 'Enter') {
+      printTimesTable();
+    }
+  });
+}
+
+/* =========================
    실행
    ========================= */
 setupGreeting();
 setupModal();
+setupTimesTable();
