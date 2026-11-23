@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS DOM 인터랙션</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- defer: HTML을 모두 읽은 뒤 실행 → querySelector로 요소를 바로 찾을 수 있다 -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 class="site-title">JS DOM 인터랙션</h1>
+    <p class="site-desc">JavaScript로 DOM을 조작하고 이벤트를 처리하는 미니 기능 모음</p>
+  </header>
+
+  <main class="container">
+
+    <!-- 2-1. 버튼 클릭으로 텍스트와 인사 출력 -->
+    <section id="greeting" class="card">
+      <h2 class="card-title">인사하기</h2>
+      <p class="card-desc">이름을 입력하고 버튼을 누르면 인사말이 출력됩니다.</p>
+
+      <div class="field">
+        <label for="name-input" class="label">이름</label>
+        <div class="field-row">
+          <input type="text" id="name-input" class="input" placeholder="예: 홍길동" autocomplete="off">
+          <button type="button" id="greet-button" class="button">인사하기</button>
+        </div>
+      </div>
+
+      <!-- aria-live: 내용이 바뀌면 스크린리더가 읽어 준다 -->
+      <div id="greeting-output" class="output" aria-live="polite">
+        아직 인사하지 않았어요.
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Mission 2 · 웹 개발 심화 1</p>
+  </footer>
+
+</body>
+</html>
