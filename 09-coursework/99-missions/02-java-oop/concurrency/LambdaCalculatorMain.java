@@ -30,18 +30,30 @@ public class LambdaCalculatorMain {
         double b = 4;
 
         // 직접 계산한 기대값 (10, 4 기준). 람다 결과와 비교해 정상 동작을 확인한다
-        Map<String, Double> expected = Map.of("+", 14.0, "-", 6.0, "*", 40.0, "/", 2.5);
+        // 등록된 연산(OPERATIONS)이 아니라 기대값 목록을 기준으로 돌아야, 등록이 빠진 연산도 (불일치)로 잡힌다
+        Map<String, Double> expected = new LinkedHashMap<>(); // 출력 순서 유지
+        expected.put("+", 14.0);
+        expected.put("-", 6.0);
+        expected.put("*", 40.0);
+        expected.put("/", 2.5);
         boolean allPassed = true;
 
-        // 1. 네 연산을 같은 방식(applyAsDouble)으로 호출한다
+        // 1. 네 연산을 같은 방식(calculate → applyAsDouble)으로 호출한다
         System.out.println("=== 람다 계산기: " + a + ", " + b + " ===");
-        for (Map.Entry<String, DoubleBinaryOperator> entry : OPERATIONS.entrySet()) {
+        for (Map.Entry<String, Double> entry : expected.entrySet()) {
             String operator = entry.getKey();
-            double result = entry.getValue().applyAsDouble(a, b);
-            boolean match = result == expected.get(operator); // 이 값들은 double로 정확히 표현돼 == 비교 가능
-            allPassed &= match;
-            System.out.println(a + " " + operator + " " + b + " = " + result
-                    + (match ? " (일치)" : " (불일치: 기대값 " + expected.get(operator) + ")"));
+            double expectedValue = entry.getValue();
+            try {
+                double result = calculate(a, operator, b);
+                boolean match = result == expectedValue; // 이 값들은 double로 정확히 표현돼 == 비교 가능
+                allPassed &= match;
+                System.out.println(a + " " + operator + " " + b + " = " + result
+                        + (match ? " (일치)" : " (불일치: 기대값 " + expectedValue + ")"));
+            } catch (RuntimeException e) { // 연산이 등록되지 않았거나 계산 중 예외
+                allPassed = false;
+                System.out.println(a + " " + operator + " " + b + " → 오류: " + e.getMessage()
+                        + " (불일치: 기대값 " + expectedValue + ")");
+            }
         }
 
         // 2. 예외 상황: 기대한 예외가 발생해야 통과
