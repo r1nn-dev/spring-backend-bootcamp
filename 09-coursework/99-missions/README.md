@@ -7,7 +7,7 @@
 | 웹 개발 기초       | [01-resume-page](01-resume-page/) | HTML/CSS 이력서 페이지, CSS Grid, 반응형 @media | [README](01-resume-page/README.md) · [Firebase](https://r1nn-resume-be62f.web.app) |
 | 웹 개발 심화 1     | [01-js-dom-interactions](01-js-dom-interactions/) | JS DOM 조작·이벤트: 인사 출력, 모달, 구구단, 이미지 효과·다크모드 | [README](01-js-dom-interactions/README.md) · [Firebase](https://r1nn-js-dom-a5224.web.app) |
 | 웹 개발 심화 2     |                                   |                                       |                                                                                |
-| Java 기초       |                                   |                                       |                                                                                |
+| Java 기초       | [02-java-basics](02-java-basics/) | Scanner 입출력, 메서드, for/while, if/switch, 배열·버블 정렬 | [README](02-java-basics/README.md) |
 | 데이터베이스 및 ORM  |                                   |                                       |                                                                                |
 | Java 중급       |                                   |                                       |                                                                                |
 | Spring 프레임워크 기초 |                                   |                                       |                                                                                |
