@@ -9,7 +9,7 @@
 | 웹 개발 심화 2     |                                   |                                       |                                                                                |
 | Java 기초       | [02-java-basics](02-java-basics/) | Scanner 입출력, 메서드, for/while, if/switch, 배열·버블 정렬 | [README](02-java-basics/README.md) |
 | 데이터베이스 및 ORM  |                                   |                                       |                                                                                |
-| Java 중급       |                                   |                                       |                                                                                |
+| Java 중급       | [02-java-oop](02-java-oop/) | 클래스·캡슐화, 상속·오버라이딩, 인터페이스·다형성, 예외 처리, 스레드, 람다 | [README](02-java-oop/README.md) |
 | Spring 프레임워크 기초 |                                   |                                       |                                                                                |
 | Spring 프레임워크 고급 |                                   |                                       |                                                                                |
 | RESTful API 개발 |                                   |                                       |                                                                                |

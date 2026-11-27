@@ -4,7 +4,7 @@ Java로 클래스 설계(캡슐화·상속·인터페이스), 예외 처리, 스
 
 ## 결과물
 
-- GitHub: https://github.com/r1nn-dev/spring-backend-bootcamp/tree/main/09-coursework/99-missions/02-java-oop
+- GitHub: https://github.com/r1nn-dev/spring-backend-bootcamp/tree/main/09-coursework/99-missions/02-java-intermediate
 
 ## 과제
 
@@ -78,7 +78,7 @@ Java로 클래스 설계(캡슐화·상속·인터페이스), 예외 처리, 스
 
 JDK 21 기준. 하위 폴더 이름이 곧 패키지 이름이다.
 
-**IntelliJ**: 이 폴더(`02-java-oop/`)를 우클릭 → **Mark Directory as → Sources Root** → 각 `XxxMain`의 ▶ 실행
+**IntelliJ**: 이 폴더(`02-java-intermediate/`)를 우클릭 → **Mark Directory as → Sources Root** → 각 `XxxMain`의 ▶ 실행
 
 **터미널** (이 폴더에서)
 
